@@ -21,9 +21,14 @@ function addVAT(originalPrice, vatRate) {
   if (vatRate === undefined) throw new Error("vatRate is required");
   // Add your code here!
 
+  function roundToTwo(num) 
+  {
+    return +(Math.round(num + "e+2") + "e-2")
+  }
+
   var percent = vatRate/100
   var vat = percent*originalPrice
-  var total = originalPrice + vat
+  var total = roundToTwo(originalPrice + vat)
   return total
 
 }
@@ -33,10 +38,16 @@ function getSalePrice(originalPrice, reduction) {
   if (reduction === undefined) throw new Error("reduction is required");
   // Add your code here!
 
+  function roundToTwo(num) 
+  {
+    return +(Math.round(num + "e+2") + "e-2")
+  }
+
   var percent = reduction/100
   var discount = percent*originalPrice
-  var total = originalPrice-discount
-  return total
+  var total = roundToTwo(originalPrice-discount)
+  
+    return total
 }
 
 function getMiddleCharacter(str) {
@@ -102,12 +113,17 @@ function getMeanScore(scores) {
   if (scores === undefined) throw new Error("scores is required");
   // Add your code here!
 
+  function roundToTwo(num) 
+  {
+    return +(Math.round(num + "e+2") + "e-2")
+  }
+
   var total = 0;
   for (var i = 0; i < scores.length; i++) 
   {
     total += scores[i];
   }
-  return (total / scores.length)
+  return roundToTwo(total / scores.length)
 }
 
 function simpleFizzBuzz(n) {
