@@ -2,7 +2,7 @@ function getFillings(sandwich) {
   if (sandwich === undefined) throw new Error("ingredients is required");
   // Your code here!
 
-  // Why does it say ingredients is required when it is fillings?
+  // Why does it say ingredients is required when it is sandwich?
   return sandwich["fillings"] 
 }
 

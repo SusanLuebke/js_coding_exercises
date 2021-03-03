@@ -2,7 +2,12 @@ function getSquares(nums) {
   if (nums === undefined) throw new Error("nums is required");
   // Your code here!
   
-  input_nums = parseInt(nums)
+  if (nums.length == 0)
+    {
+      return []
+    }
+
+  input_nums = nums
   square_nums = Array(input_nums.length)
 
   for (var i = 0; i < input_nums.length; i++) 
@@ -17,13 +22,15 @@ function camelCaseWords(words) {
   if (words === undefined) throw new Error("words is required");
   // Your code here!
 
-  if (words.length == 1) 
+  console.log(words.length)
+
+  if (words.length == 1) // if length is one variable then do nothing
   {
     return words
   }
-  for (var i = 1; i < words.length; i++) 
+  for (var i = 1; i < words.length; i++) // defining loop, start at 1, loop until length of string
   {
-    words[i] = words[i].substring(0, 1).toUpperCase + words[i].substring(1)
+    words[i] = words[i].substring(0, 1).toUpperCase + words[i].substring(1) // i for index changing
   }
 
   return words.join("")
@@ -61,6 +68,15 @@ function duplicateNumbers(arr1, arr2) {
   if (arr1 === undefined) throw new Error("arr1 is required");
   if (arr2 === undefined) throw new Error("arr2 is required");
   // Your code here!
+
+  function removeDuplicates(data)
+  {
+    return data.filter((value, index) => data.indexOf(value) === index)
+  }
+
+  var tobesorted = removeDuplicates(arr1.filter(element => arr2.includes(element)))
+  return tobesorted.sort()
+
 }
 
 module.exports = {
