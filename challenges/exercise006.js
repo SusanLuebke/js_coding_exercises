@@ -4,8 +4,18 @@
  * @param {Array} arr
  * @returns {Number}
  */
-const sumMultiples = arr => {
+const sumMultiples = (arr) => {
   if (arr === undefined) throw new Error("arr is required");
+  // loop through the array
+  // if the number is / 3 or /5 (%), add to total
+  // return total
+  let total = 0;
+  arr.forEach(n => {
+    if (n % 5 ===0 || n % 3 === 0) {
+      total += n
+    }
+  })
+  return total;
 };
 
 /**
@@ -13,8 +23,15 @@ const sumMultiples = arr => {
  * @param {String} str
  * @returns {Boolean}
  */
-const isValidDNA = str => {
+const isValidDNA = (str) => {
   if (str === undefined) throw new Error("str is required");
+
+  let str = "C" && "G" && "T" && "A";
+  if(match(str))
+    {
+    return true;
+    }
+    return false;
 };
 
 /**
@@ -22,7 +39,7 @@ const isValidDNA = str => {
  * @param {String} str
  * @returns {String}
  */
-const getComplementaryDNA = str => {
+const getComplementaryDNA = (str) => {
   if (str === undefined) throw new Error("str is required");
 };
 
@@ -31,7 +48,7 @@ const getComplementaryDNA = str => {
  * @param {Number} n
  * @returns {Boolean}
  */
-const isItPrime = n => {
+const isItPrime = (n) => {
   if (n === undefined) throw new Error("n is required");
 };
 
@@ -66,6 +83,24 @@ const createMatrix = (n, fill) => {
 const areWeCovered = (staff, day) => {
   if (staff === undefined) throw new Error("staff is required");
   if (day === undefined) throw new Error("day is required");
+  if (staff.length === 0) {
+    return false;
+  }
+
+  let count = 0;
+  for (let i = 0; i < staff.length; i++)
+  {
+    if(staff[i]["rota"].includes(day))
+    {
+      count += 1;
+    }
+  }
+
+  if (count >= 3)
+  {
+    return true;
+  }
+  return false;
 };
 
 module.exports = {
