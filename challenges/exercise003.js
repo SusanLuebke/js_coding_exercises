@@ -22,15 +22,13 @@ function camelCaseWords(words) {
   if (words === undefined) throw new Error("words is required");
   // Your code here!
 
-  console.log(words.length)
-
-  if (words.length == 1) // if length is one variable then do nothing
+  if (words.length < 1) // if length is one variable then do nothing
   {
     return words
   }
   for (var i = 1; i < words.length; i++) // defining loop, start at 1, loop until length of string
   {
-    words[i] = words[i].substring(0, 1).toUpperCase + words[i].substring(1) // i for index changing
+    words[i] = words[i].substring(0, 1).toUpperCase() + words[i].substring(1) // i for index changing
   }
 
   return words.join("")
