@@ -2,8 +2,17 @@
  * This function takes a number, e.g. 123 and returns the sum of all its digits, e.g 6 in this example.
  * @param {Number} n
  */
-const sumDigits = n => {
+const sumDigits = (n) => {
   if (n === undefined) throw new Error("n is required");
+
+  let sum = 0;
+
+  while (n) {
+    sum += n % 10;
+    n = Math.floor(n / 10);
+  }
+
+  return sum;
 };
 
 /**
@@ -17,6 +26,16 @@ const sumDigits = n => {
 const createRange = (start, end, step) => {
   if (start === undefined) throw new Error("start is required");
   if (end === undefined) throw new Error("end is required");
+
+  if (step === undefined) {
+    step = 1;
+  }
+
+  var ans = [];
+  for (let i = start; i <= end; i += step) {
+    ans.push(i);
+  }
+  return ans;
 };
 
 /**
@@ -51,6 +70,26 @@ const createRange = (start, end, step) => {
 const getScreentimeAlertList = (users, date) => {
   if (users === undefined) throw new Error("users is required");
   if (date === undefined) throw new Error("date is required");
+
+  let usr_list = [];
+  let total = 0;
+  for (let i = 0; i < users.length; i++) {
+    let screen_time = users[i]["screenTime"];
+    console.log(screen_time);
+    for (let j = 0; j < screen_time.length; j++) {
+      if (screen_time[j]["date"] == date) {
+        let arr_of_times = Object.values(screen_time[j]["usage"]);
+        for (let k = 0; k < arr_of_times.length; k++) {
+          total += arr_of_times[k];
+        }
+        if (total > 100) {
+          usr_list.push(users[i]["username"]);
+        }
+      }
+    }
+
+    return usr_list;
+  }
 };
 
 /**
@@ -63,8 +102,14 @@ const getScreentimeAlertList = (users, date) => {
  * Hint: You will need to convert each hexadecimal value for R, G and B into its decimal equivalent!
  * @param {String} str
  */
-const hexToRGB = hexStr => {
+const hexToRGB = (hexStr) => {
   if (hexStr === undefined) throw new Error("hexStr is required");
+
+  let r = parseInt(hexStr.substring(1, 3), 16);
+  let g = parseInt(hexStr.substring(3, 5), 16);
+  let b = parseInt(hexStr.substring(5, 7), 16);
+  return "rgb(" + r + "," + g + "," + b + ")";
+
 };
 
 /**
@@ -77,7 +122,7 @@ const hexToRGB = hexStr => {
  * The function should return "X" if player X has won, "0" if the player 0 has won, and null if there is currently no winner.
  * @param {Array} board
  */
-const findWinner = board => {
+const findWinner = (board) => {
   if (board === undefined) throw new Error("board is required");
 };
 
@@ -86,5 +131,5 @@ module.exports = {
   createRange,
   getScreentimeAlertList,
   hexToRGB,
-  findWinner
+  findWinner,
 };

@@ -1,117 +1,107 @@
 function findSmallNums(nums) {
   if (!nums) throw new Error("nums is required");
 
-
   var filtered_nums = nums.filter((number) => number < 1);
-  return filtered_nums
-
+  return filtered_nums;
 }
 
 function findNamesBeginningWith(names, char) {
   if (!names) throw new Error("names is required");
   if (!char) throw new Error("char is required");
 
-
-  var output = []
+  var output = [];
   for (var i = 0; i < names.length; i++) {
     if (names[i].substring(0, 1) == char) {
-      output.push(names[i])
+      output.push(names[i]);
     }
   }
-  return output
+  return output;
 }
 
 function findVerbs(words) {
   if (!words) throw new Error("words is required");
 
-
-  verbs = []
-  for (var i = 0; i < words.length; i++) // use to repeatedly filter through a list
-  {
-    split_words = words[i].split(" ")
+  let verbs = [];
+  for (
+    var i = 0;
+    i < words.length;
+    i++ // use to repeatedly filter through a list
+  ) {
+    let split_words = words[i].split(" ");
     if (split_words[0] == "to") {
-      verbs.push(words[i])
+      verbs.push(words[i]);
     }
   }
-  return verbs
+  return verbs;
 }
 
 function getIntegers(nums) {
   if (!nums) throw new Error("nums is required");
 
-
-  int_vals = []
+  let int_vals = [];
   for (var i = 0; i < nums.length; i++) {
     if (Number.isInteger(nums[i])) {
-      int_vals.push(nums[i])
+      int_vals.push(nums[i]);
     }
   }
 
-  return int_vals
+  return int_vals;
 }
 
 function getCities(users) {
   if (!users) throw new Error("users is required");
 
-
-  cities = []
+  let cities = [];
   for (var i = 0; i < users.length; i++) {
-    cities.push(users[i]["data"]["city"]["displayName"]) // Why filter though all?
+    cities.push(users[i]["data"]["city"]["displayName"]); // Why filter though all?
   }
 
-  return cities
+  return cities;
 }
 
 function getSquareRoots(nums) {
   if (!nums) throw new Error("nums is required");
 
-
   function roundToTwo(nums) {
-    return +(Math.round(nums + "e+2") + "e-2")
+    return +(Math.round(nums + "e+2") + "e-2");
   }
 
   if (nums.length == 0) {
-    return []
+    return [];
   }
 
-  input_nums = nums
-  square_nums = Array(input_nums.length)
+  let input_nums = nums;
+  let square_nums = Array(input_nums.length);
 
   for (var i = 0; i < input_nums.length; i++) {
-    square_nums[i] = roundToTwo(Math.sqrt(input_nums[i]))
+    square_nums[i] = roundToTwo(Math.sqrt(input_nums[i]));
   }
-  return square_nums
+  return square_nums;
 }
-
 
 function findSentencesContaining(sentences, str) {
   if (!sentences) throw new Error("sentences is required");
   if (!str) throw new Error("str is required");
 
-
-  word = []
+  let word = [];
   for (var i = 0; i < sentences.length; i++) {
     if (sentences[i].toLowerCase().search(str.toLowerCase()) != -1) {
-      word.push(sentences[i])
+      word.push(sentences[i]);
     }
   }
 
-  return word
+  return word;
 }
-
 
 function getLongestSides(triangles) {
   if (!triangles) throw new Error("triangles is required");
 
-
-  sides = []
+  let sides = [];
   for (var i = 0; i < triangles.length; i++) {
-
-    sides.push(Math.max.apply(null, triangles[i])) // When don't know size of array, so have to push to it
+    sides.push(Math.max.apply(null, triangles[i])); // When don't know size of array, so have to push to it
   }
-  return sides
+  return sides;
 }
-
 
 module.exports = {
   findSmallNums,
@@ -121,5 +111,5 @@ module.exports = {
   getCities,
   getSquareRoots,
   findSentencesContaining,
-  getLongestSides
+  getLongestSides,
 };
