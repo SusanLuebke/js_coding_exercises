@@ -1,7 +1,7 @@
 const findNextNumber = (nums, n) => {
   if (nums === undefined) throw new Error("nums is required");
   if (n === undefined) throw new Error("n is required");
-  // Your code here!
+  
 
   for (var i = 0; i < nums.length; i++) 
   {
@@ -18,7 +18,7 @@ const findNextNumber = (nums, n) => {
 
 const count1sand0s = str => {
   if (str === undefined) throw new Error("str is required");
-  // Your code here!
+ 
   
     var sum = 0
     
@@ -36,7 +36,7 @@ const count1sand0s = str => {
 
 const reverseNumber = n => {
   if (n === undefined) throw new Error("n is required");
-  // Your code here!
+ 
 
 	return (
     parseFloat(
@@ -51,7 +51,7 @@ const reverseNumber = n => {
 
 const sumArrays = arrs => {
   if (arrs === undefined) throw new Error("arrs is required");
-  // Your code here!
+
 
   var summed_vals = 0
   for (var i = 0; i < arrs.length; i++) 
@@ -67,7 +67,7 @@ const sumArrays = arrs => {
 
 const arrShift = arr => {
   if (arr === undefined) throw new Error("arr is required");
-  // Your code here!
+
 
   if (arr.length < 2)
   {
@@ -82,39 +82,27 @@ const arrShift = arr => {
 const findNeedle = (haystack, searchTerm) => {
   if (haystack === undefined) throw new Error("haystack is required");
   if (searchTerm === undefined) throw new Error("searchTerm is required");
-  // Your code here!
 
-  // const {name, description, price, store, code} = haystack
-  // var search_string = name+description+price+store+code
-  // console.log(name, description, price)
 
-  // if (search_string.search(searchTerm) != -1)
-  // {
-  //   return true
-  // }
-  // else
-  // {
-  //   return false
-  // }
-
-  for (key in haystack) 
-  { 
-    console.log(key)
-    if (haystack[key].toLowerCase().includes(searchTerm.toLowerCase())) 
+  var obj_vals = Object.values(haystack)
+  console.log(obj_vals)
+  for (var i = 0; i < obj_vals.length; i++)
+  {
+    if (typeof obj_vals[i] === 'string' || obj_vals[i] instanceof String)
     {
-      
-      //console.log(haystack[key])
-      //console.log(searchTerm)
-      return true
+      if (obj_vals[i].indexOf(searchTerm) > -1)
+      {
+        return true
+      }
     }
-    
   }
   return false
 };
 
+
 const getWordFrequencies = str => {
   if (str === undefined) throw new Error("str is required");
-  // Your code here!
+  
   
   str = str.toLowerCase() // converts string to lowercase
   str = str.replace(/[.,\/#!$?%\^&\*;:{}=\-_`~()]/g,"")

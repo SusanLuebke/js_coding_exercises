@@ -1,26 +1,24 @@
 function getSquares(nums) {
   if (nums === undefined) throw new Error("nums is required");
-  // Your code here!
-  
-  if (nums.length == 0)
-    {
-      return []
-    }
+
+
+  if (nums.length == 0) {
+    return []
+  }
 
   input_nums = nums
   square_nums = Array(input_nums.length)
 
-  for (var i = 0; i < input_nums.length; i++) 
-  {
+  for (var i = 0; i < input_nums.length; i++) {
     square_nums[i] = input_nums[i] * input_nums[i]
   }
 
-  return square_nums 
+  return square_nums
 }
 
 function camelCaseWords(words) {
   if (words === undefined) throw new Error("words is required");
-  // Your code here!
+
 
   if (words.length < 1) // if length is one variable then do nothing
   {
@@ -36,11 +34,10 @@ function camelCaseWords(words) {
 
 function getTotalSubjects(people) {
   if (people === undefined) throw new Error("people is required");
-  // Your code here!
+
 
   var count = 0
-  for (var i = 0; i < people.length; i++) 
-  {
+  for (var i = 0; i < people.length; i++) {
     count += people[i]["subjects"].length
   }
   return count
@@ -49,13 +46,11 @@ function getTotalSubjects(people) {
 function checkIngredients(menu, ingredient) {
   if (menu === undefined) throw new Error("menu is required");
   if (!ingredient) throw new Error("ingredient is required");
-  // Your code here!
- 
-  for (var i = 0; i < menu.length; i++) 
-  {
+
+
+  for (var i = 0; i < menu.length; i++) {
     ingredients = menu[i]["ingredients"]
-    if (ingredients.includes(ingredient)) 
-    {
+    if (ingredients.includes(ingredient)) {
       return true
     }
   }
@@ -65,10 +60,9 @@ function checkIngredients(menu, ingredient) {
 function duplicateNumbers(arr1, arr2) {
   if (arr1 === undefined) throw new Error("arr1 is required");
   if (arr2 === undefined) throw new Error("arr2 is required");
-  // Your code here!
 
-  function removeDuplicates(data)
-  {
+
+  function removeDuplicates(data) {
     return data.filter((value, index) => data.indexOf(value) === index)
   }
 

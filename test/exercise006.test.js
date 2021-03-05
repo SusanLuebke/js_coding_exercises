@@ -1,4 +1,4 @@
-const { sumMultiples, areWeCovered, createMatrix, isValidDNA } = require("../challenges/exercise006");
+const { sumMultiples, areWeCovered, createMatrix, isValidDNA, getComplementaryDNA } = require("../challenges/exercise006");
 
     describe("sumMultiples", () => {
         test("if throws an error if isn't an array", () => {
@@ -53,24 +53,61 @@ const { sumMultiples, areWeCovered, createMatrix, isValidDNA } = require("../cha
         });
     });
 
-    xdescribe("creativeMatrix", () => { 
+    describe("creativeMatrix", () => { 
         test("returns a matrix of 1 * 1 when passed 1", () => {
-            const result = createMatrix(1);
-            const expected = [ ["foo"] ]
-            expect(result).toEqual(expected); // use toEqual for complex values
+            const result = createMatrix(1, "foo");
+            const expected = [["foo"]]
+            expect(result).toEqual(expected);
         });
+
+        test("throws an error if fill is not provided", () => {
+            expect(() => {
+            createMatrix(1);
+            }).toThrow("fill is required");
+        });
+
+        test("returns a matrix of 3 * 3 when passed 3", () => {
+            const result = createMatrix(3, "foo");
+            const expected = [["foo", "foo", "foo"], ["foo", "foo", "foo"], ["foo", "foo", "foo"]]
+            expect(result).toEqual(expected);
+          });
     });
 
     describe("isValidDNA", () => { 
-        test("throws an error if isn't a string", () => {
+        test("throws an error if DNA string is not provided", () => {
             expect(() => {
                 isValidDNA();
             }).toThrow("str is required")
         }); 
         
-        test("string of characters should return true/false depending on whether it is a valid DNA string. A valid DNA string may contain characters C, G, T or A only", () => {
-            const result = isValidDNA (['C', 'G', 'T', 'A']);
-            const expected = CGTA;
-            expect(result).toBe(expected); 
+        test("returns a true/false if valid/invalid DNA", () => {
+            let dna = "C";  
+            const expected = "CGTA";
+            expect(isValidDNA(dna)).toEqual(true); 
+
+            dna = "CGTATAGTC"
+            expect(isValidDNA(dna)).toEqual(true);
+
+            dna = ""
+            expect(isValidDNA(dna)).toEqual(true);
+
         });
     });
+
+    describe("getComplementaryDNA", () => { 
+        test("throws an error if DNA string is not provided", () => {
+            expect(() => {
+                getComplementaryDNA();
+            }).toThrow("str is required")
+    });
+
+    test("returns complementary DNA sequence", () => {
+        let dna = 'C';
+        expect(getComplementaryDNA(dna)).toEqual('G');
+    });
+
+    test("returns larger complementary DNA sequence", () => {
+        dna = 'CGTATAGTC';
+        expect(getComplementaryDNA(dna)).toEqual('GCATATCAG');
+    });
+});
