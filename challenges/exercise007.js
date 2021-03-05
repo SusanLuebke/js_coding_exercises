@@ -109,7 +109,6 @@ const hexToRGB = (hexStr) => {
   let g = parseInt(hexStr.substring(3, 5), 16);
   let b = parseInt(hexStr.substring(5, 7), 16);
   return "rgb(" + r + "," + g + "," + b + ")";
-
 };
 
 /**
@@ -124,6 +123,8 @@ const hexToRGB = (hexStr) => {
  */
 const findWinner = (board) => {
   if (board === undefined) throw new Error("board is required");
+
+  
 };
 
 module.exports = {

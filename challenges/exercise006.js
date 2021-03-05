@@ -10,11 +10,11 @@ const sumMultiples = (arr) => {
   // if the number is / 3 or /5 (%), add to total
   // return total
   let total = 0;
-  arr.forEach(n => {
+  arr.forEach((n) => {
     if (n % 5 === 0 || n % 3 === 0) {
-      total += n
+      total += n;
     }
-  })
+  });
   return total;
 };
 
@@ -26,8 +26,8 @@ const sumMultiples = (arr) => {
 const isValidDNA = (str) => {
   if (str === undefined) throw new Error("str is required");
 
-  let in_arr = str.split('')
-  let valid = 'CGTA';
+  let in_arr = str.split("");
+  let valid = "CGTA";
 
   for (let i = 0; i < in_arr.length; i++) {
     if (!valid.match(in_arr[i])) {
@@ -36,8 +36,7 @@ const isValidDNA = (str) => {
   }
 
   return true;
-
-}
+};
 
 /**
  * This function will receive a valid DNA string (see above) and should return a string of the complementary base pairs. In DNA, T always pairs with A, and C always pairs with G. So a string of "ACTG" would have a complementary DNA string of "TGAC".
@@ -45,23 +44,19 @@ const isValidDNA = (str) => {
  * @returns {String}
  */
 const getComplementaryDNA = (str) => {
-
   if (str === undefined) throw new Error("str is required");
 
-  let in_arr = str.split('')
+  let in_arr = str.split("");
   let out_arr = in_arr;
 
   for (let i = 0; i < in_arr.length; i++) {
     if (in_arr[i] == "G") {
       out_arr[i] = "C";
-    }
-    else if (in_arr[i] == "T") {
+    } else if (in_arr[i] == "T") {
       out_arr[i] = "A";
-    }
-    else if (in_arr[i] == "A") {
+    } else if (in_arr[i] == "A") {
       out_arr[i] = "T";
-    }
-    else if (in_arr[i] == "C") {
+    } else if (in_arr[i] == "C") {
       out_arr[i] = "G";
     }
   }
@@ -84,9 +79,7 @@ const isItPrime = (n) => {
   }
 
   return true;
-
 };
-
 
 /**
  * This function should receive a number and return an array of n arrays, each filled with n items. The parameter "fill" should be used as the filler of the arrays. For example, given parameters 3 and "foo" the resulting matrix should be:
@@ -104,7 +97,6 @@ const createMatrix = (n, fill) => {
   if (fill === undefined) throw new Error("fill is required");
 
   return new Array(n).fill(fill).map(() => new Array(n).fill(fill));
-
 };
 
 /**
@@ -133,7 +125,6 @@ const areWeCovered = (staff, day) => {
     }
   }
 
-
   if (count >= 3) {
     return true;
   }
@@ -146,5 +137,5 @@ module.exports = {
   getComplementaryDNA,
   isItPrime,
   createMatrix,
-  areWeCovered
+  areWeCovered,
 };

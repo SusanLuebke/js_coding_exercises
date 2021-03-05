@@ -6,8 +6,8 @@ function getSquares(nums) {
     return []
   }
 
-  input_nums = nums
-  square_nums = Array(input_nums.length)
+  let input_nums = nums
+  let square_nums = Array(input_nums.length)
 
   for (var i = 0; i < input_nums.length; i++) {
     square_nums[i] = input_nums[i] * input_nums[i]
@@ -49,7 +49,7 @@ function checkIngredients(menu, ingredient) {
 
 
   for (var i = 0; i < menu.length; i++) {
-    ingredients = menu[i]["ingredients"]
+    let ingredients = menu[i]["ingredients"]
     if (ingredients.includes(ingredient)) {
       return true
     }
