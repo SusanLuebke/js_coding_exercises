@@ -31,7 +31,7 @@ const createRange = (start, end, step) => {
     step = 1;
   }
 
-  var ans = [];
+  let ans = [];
   for (let i = start; i <= end; i += step) {
     ans.push(i);
   }
@@ -123,8 +123,6 @@ const hexToRGB = (hexStr) => {
  */
 const findWinner = (board) => {
   if (board === undefined) throw new Error("board is required");
-
-  
 };
 
 module.exports = {

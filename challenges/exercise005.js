@@ -2,7 +2,7 @@ const findNextNumber = (nums, n) => {
   if (nums === undefined) throw new Error("nums is required");
   if (n === undefined) throw new Error("n is required");
 
-  for (var i = 0; i < nums.length; i++) {
+  for (let i = 0; i < nums.length; i++) {
     if (nums[i] == n) {
       if (i == nums.length - 1) {
         return null;
@@ -16,9 +16,9 @@ const findNextNumber = (nums, n) => {
 const count1sand0s = (str) => {
   if (str === undefined) throw new Error("str is required");
 
-  var sum = 0;
+  let sum = 0;
 
-  for (var i = 0, length = str.length; i < length; i++) {
+  for (let i = 0, length = str.length; i < length; i++) {
     sum += Number(str[i]);
   }
 
@@ -37,8 +37,8 @@ const reverseNumber = (n) => {
 const sumArrays = (arrs) => {
   if (arrs === undefined) throw new Error("arrs is required");
 
-  var summed_vals = 0;
-  for (var i = 0; i < arrs.length; i++) {
+  let summed_vals = 0;
+  for (let i = 0; i < arrs.length; i++) {
     let element = arrs[i];
     for (
       let j = 0;
@@ -83,8 +83,8 @@ const getWordFrequencies = (str) => {
   str = str.toLowerCase(); // converts string to lowercase
   str = str.replace(/[.,\/#!$?%\^&\*;:{}=\-_`~()]/g, "");
 
-  var words = str.replace(/[.]/g, "").split(/\s/);
-  var freqMap = {};
+  let words = str.replace(/[.]/g, "").split(/\s/);
+  let freqMap = {};
   words.forEach(function (w) {
     if (!freqMap[w]) {
       freqMap[w] = 0;

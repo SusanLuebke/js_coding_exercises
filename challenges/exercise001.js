@@ -33,9 +33,9 @@ function getSalePrice(originalPrice, reduction) {
     return +(Math.round(num + "e+2") + "e-2");
   }
 
-  var percent = reduction / 100;
-  var discount = percent * originalPrice;
-  var total = roundToTwo(originalPrice - discount);
+  let percent = reduction / 100;
+  let discount = percent * originalPrice;
+  let total = roundToTwo(originalPrice - discount);
 
   return total;
 }
@@ -43,8 +43,8 @@ function getSalePrice(originalPrice, reduction) {
 function getMiddleCharacter(str) {
   if (str === undefined) throw new Error("str is required");
 
-  var position;
-  var length;
+  let position;
+  let length;
 
   if (str.length % 2 == 1) {
     position = str.length / 2;
@@ -60,20 +60,20 @@ function getMiddleCharacter(str) {
 function reverseWord(word) {
   if (word === undefined) throw new Error("word is required");
 
-  var splitString = word.split("");
-  var reverseArray = splitString.reverse();
-  var joinArray = reverseArray.join("");
+  let splitString = word.split("");
+  let reverseArray = splitString.reverse();
+  let joinArray = reverseArray.join("");
   return joinArray;
 }
 
 function reverseAllWords(words) {
   if (words === undefined) throw new Error("words is required");
 
-  var joinArray = Array(words.length);
+  let joinArray = Array(words.length);
 
-  for (var i = 0; i < words.length; i++) {
-    var splitString = words[i].split("");
-    var reverseArray = splitString.reverse();
+  for (let i = 0; i < words.length; i++) {
+    let splitString = words[i].split("");
+    let reverseArray = splitString.reverse();
     joinArray[i] = reverseArray.join("");
   }
   return joinArray;
@@ -82,8 +82,8 @@ function reverseAllWords(words) {
 function countLinuxUsers(users) {
   if (users === undefined) throw new Error("users is required");
 
-  var count = 0;
-  for (var i = 0; i < users.length; i++) {
+  let count = 0;
+  for (let i = 0; i < users.length; i++) {
     if (users[i]["type"] == "Linux") {
       count += 1;
     }
@@ -98,8 +98,8 @@ function getMeanScore(scores) {
     return +(Math.round(num + "e+2") + "e-2");
   }
 
-  var total = 0;
-  for (var i = 0; i < scores.length; i++) {
+  let total = 0;
+  for (let i = 0; i < scores.length; i++) {
     total += scores[i];
   }
   return roundToTwo(total / scores.length);

@@ -1,7 +1,7 @@
 function findSmallNums(nums) {
   if (!nums) throw new Error("nums is required");
 
-  var filtered_nums = nums.filter((number) => number < 1);
+  let filtered_nums = nums.filter((number) => number < 1);
   return filtered_nums;
 }
 
@@ -9,8 +9,8 @@ function findNamesBeginningWith(names, char) {
   if (!names) throw new Error("names is required");
   if (!char) throw new Error("char is required");
 
-  var output = [];
-  for (var i = 0; i < names.length; i++) {
+  let output = [];
+  for (let i = 0; i < names.length; i++) {
     if (names[i].substring(0, 1) == char) {
       output.push(names[i]);
     }
@@ -23,7 +23,7 @@ function findVerbs(words) {
 
   let verbs = [];
   for (
-    var i = 0;
+    let i = 0;
     i < words.length;
     i++ // use to repeatedly filter through a list
   ) {
@@ -39,7 +39,7 @@ function getIntegers(nums) {
   if (!nums) throw new Error("nums is required");
 
   let int_vals = [];
-  for (var i = 0; i < nums.length; i++) {
+  for (let i = 0; i < nums.length; i++) {
     if (Number.isInteger(nums[i])) {
       int_vals.push(nums[i]);
     }
@@ -52,7 +52,7 @@ function getCities(users) {
   if (!users) throw new Error("users is required");
 
   let cities = [];
-  for (var i = 0; i < users.length; i++) {
+  for (let i = 0; i < users.length; i++) {
     cities.push(users[i]["data"]["city"]["displayName"]); // Why filter though all?
   }
 
@@ -73,7 +73,7 @@ function getSquareRoots(nums) {
   let input_nums = nums;
   let square_nums = Array(input_nums.length);
 
-  for (var i = 0; i < input_nums.length; i++) {
+  for (let i = 0; i < input_nums.length; i++) {
     square_nums[i] = roundToTwo(Math.sqrt(input_nums[i]));
   }
   return square_nums;
@@ -84,7 +84,7 @@ function findSentencesContaining(sentences, str) {
   if (!str) throw new Error("str is required");
 
   let word = [];
-  for (var i = 0; i < sentences.length; i++) {
+  for (let i = 0; i < sentences.length; i++) {
     if (sentences[i].toLowerCase().search(str.toLowerCase()) != -1) {
       word.push(sentences[i]);
     }
@@ -97,7 +97,7 @@ function getLongestSides(triangles) {
   if (!triangles) throw new Error("triangles is required");
 
   let sides = [];
-  for (var i = 0; i < triangles.length; i++) {
+  for (let i = 0; i < triangles.length; i++) {
     sides.push(Math.max.apply(null, triangles[i])); // When don't know size of array, so have to push to it
   }
   return sides;
